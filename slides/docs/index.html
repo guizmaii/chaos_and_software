@@ -37,16 +37,19 @@ layout: true
 ---
 # Inline Scala examples
 
-```scala mdoc:silent
+```scala
 case class Person(name: String, age: Int)
 ```
 
-```scala mdoc
+```scala
 val john = Person("John", 23)
+// john: Person = Person("John", 23)
 
 john.age
+// res0: Int = 23
 
 john.copy(age = 30)
+// res1: Person = Person("John", 30)
 ```
 
 ???
@@ -55,22 +58,28 @@ john.copy(age = 30)
 ---
 # Scala examples from core module
 
-```scala mdoc:silent
+```scala
 import com.guizmaii.chaos.and.software.Foo.{FooInt, FooString}
 ```
 
-```scala mdoc
+```scala
 val fooInt = FooInt(5)
+// fooInt: FooInt = FooInt(5)
 val fooString = FooString("Hello World")
+// fooString: FooString = FooString("Hello World")
 
 val foos = List(fooInt, fooString)
+// foos: List[com.guizmaii.chaos.and.software.Foo] = List(
+//   FooInt(5),
+//   FooString("Hello World")
+// )
 ```
 
 ---
 class: center, middle
 
 # Thanks!
-Code and slides at [fp-tower/chaos_and_software](https://github.com/guizmaii/chaos_and_software/chaos_and_software) on GitHub
+Code and slides at [guizmaii/chaos_and_software](https://github.com/guizmaii/chaos_and_software/chaos_and_software) on GitHub
 
 ## Questions?
 

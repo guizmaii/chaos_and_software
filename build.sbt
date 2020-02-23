@@ -19,7 +19,6 @@ lazy val slides = project
   .settings(baseSettings: _*)
   .settings(
     mdocIn := baseDirectory.value / "mdoc",
-    mdocOut := baseDirectory.value / "../docs",
-    watchSources ++= (mdocIn.value ** "*.html").get
+    mdocOut := baseDirectory.value / "docs",
   )
   .dependsOn(core)
