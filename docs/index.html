@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>keeping the chaos out of our programs</title>
+<head>
+    <title>Keeping the chaos out of our programs</title>
     <meta charset="utf-8">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -24,9 +24,9 @@
       th, td { padding: 10px; border: 1px solid black; }
       tr:nth-child(even) {background-color: #f2f2f2;}
     </style>
-  </head>
-  <body>
-    <textarea id="source">
+</head>
+<body>
+<textarea id="source">
 
 class: center, middle
 
@@ -38,8 +38,8 @@ class: center, middle
 <br>
 
 
-# keeping the chaos out of our programs
-Jules Ivanic • `julien@fp-tower.com`
+# Keeping the chaos out of our programs
+Jules Ivanic • `@guizmaii`
 
 ???
 - notes here
@@ -58,16 +58,19 @@ layout: true
 ---
 # Inline Scala examples
 
-```tut:silent
+```scala
 case class Person(name: String, age: Int)
 ```
 
-```tut:book
+```scala
 val john = Person("John", 23)
+// john: Person = Person("John", 23)
 
 john.age
+// res0: Int = 23
 
 john.copy(age = 30)
+// res1: Person = Person("John", 30)
 ```
 
 ???
@@ -76,15 +79,21 @@ john.copy(age = 30)
 ---
 # Scala examples from core module
 
-```tut:silent
+```scala
 import com.guizmaii.chaos.and.software.Foo.{FooInt, FooString}
 ```
 
-```tut:book
+```scala
 val fooInt = FooInt(5)
+// fooInt: FooInt = FooInt(5)
 val fooString = FooString("Hello World")
+// fooString: FooString = FooString("Hello World")
 
 val foos = List(fooInt, fooString)
+// foos: List[com.guizmaii.chaos.and.software.Foo] = List(
+//   FooInt(5),
+//   FooString("Hello World")
+// )
 ```
 
 ---
@@ -96,15 +105,17 @@ Code and slides at [fp-tower/chaos_and_software](https://github.com/fp-tower/cha
 ## Questions?
 
 
- </textarea>
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
-    </script>
-    <script>
-        var slideshow = remark.create({
-            ratio: "16:9",
-            slideNumberFormat: '%current%',
-            highlightLines: true
-        });
-    </script>
-  </body>
+</textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js">
+</script>
+<script>
+    var slideshow = remark.create({
+        ratio: "16:9",
+        slideNumberFormat: '%current%',
+        highlightStyle: "github",
+        highlightLines: true,
+        highlightSpans: true
+    });
+</script>
+</body>
 </html>

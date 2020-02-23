@@ -1,17 +1,5 @@
 lazy val baseSettings: Seq[Setting[_]] = Seq(
   scalaVersion       := "2.13.1",
-  scalacOptions     ++= Seq(
-    "-deprecation",
-    "-encoding", "UTF-8",
-    "-feature",
-    "-language:higherKinds",
-    "-language:implicitConversions", "-language:existentials",
-    "-unchecked",
-    "-Yno-adapted-args",
-    "-Ywarn-numeric-widen",
-    "-Ywarn-value-discard",
-    "-Xfuture"
-  ),
   resolvers += Resolver.sonatypeRepo("releases")
 )
 
@@ -25,13 +13,13 @@ lazy val core = project
   .settings(moduleName := "chaos_and_software-core")
   .settings(baseSettings: _*)
 
-
 lazy val slides = project
   .settings(moduleName := "chaos_and_software-slides")
+  .enablePlugins(MdocPlugin)
   .settings(baseSettings: _*)
   .settings(
-    tutSourceDirectory := baseDirectory.value / "tut",
-    tutTargetDirectory := baseDirectory.value / "../docs",
-    watchSources ++= (tutSourceDirectory.value ** "*.html").get
-  ).dependsOn(core)
-  .enablePlugins(TutPlugin)
+    mdocIn := baseDirectory.value / "mdoc",
+    mdocOut := baseDirectory.value / "../docs",
+    watchSources ++= (mdocIn.value ** "*.html").get
+  )
+  .dependsOn(core)
